@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   #attributes, requires presence of password, require they match AND add authenticate
   #method to compare an encrypted password to the password_digest to authenticate users
   # It works since we added password_digest column in database. Info: secure_password.tb
-
+  has_many :memories, dependent: :destroy
   # alternatively:
   #before_save { self.email.downcase! }
   before_save { |user| user.email = email.downcase } #callback to force downcase 

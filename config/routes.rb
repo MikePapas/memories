@@ -1,4 +1,5 @@
 Memories::Application.routes.draw do
+  resources :memories
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 

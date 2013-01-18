@@ -1,0 +1,18 @@
+<span class="content"> 
+	<table class="table table-striped">  
+		<tr>   
+			<td><%= memory.photo %></td>  
+			<td><%= memory.title %> </td>
+			<td>        
+				<%= link_to "View",	memory_path(memory), class: 'btn btn-mini' %>
+				<% if current_user?(memory.user) %>
+				<%= link_to "Edit",	edit_memory_path(memory), class: 'btn btn-mini' %>
+				<%= link_to "Delete",	memory_path(memory), method: :delete, confirm: 
+				'This is going to delete the memory permanently. Are you sure?',
+				:class => 'btn btn-mini btn-danger' %>
+				<% end %>
+			</td>   
+		</tr>  		
+	</table>	
+</span>
+

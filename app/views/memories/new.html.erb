@@ -1,0 +1,10 @@
+<% provide(:title, 'Create memory') %>
+<h1>Create memory</h1>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@memory) do |f| %>		
+			<%= render 'fields', f: f %>
+			<%= f.submit "Create my memory", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>

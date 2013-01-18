@@ -1,0 +1,55 @@
+<% provide(:title, "View memory") %>
+<h1>View memory</h1>
+<div class="span6 offset3">
+
+	Title:
+	<%= @memory.title %>
+
+
+<span class="content"> 
+	Description:
+	<%= @memory.description %>
+</span>
+
+<span class="content"> 
+	Video:
+	<%= @memory.video %>
+</span>
+
+<span class="content"> 
+	Photo:
+	<%= @memory.photo %>
+</span>
+
+<span class="content"> 
+	Date:
+	<%= @memory.date %>
+</span>
+
+<span class="content"> 
+	Location:
+	<%= @memory.location %>
+</span>
+
+<span class="content"> 
+	Mood:
+	<%= @memory.mood %>
+</span>
+
+<span class="content"> 
+	Occasion:
+	<%= @memory.occasion %>
+</span>
+
+<span class="content"> 
+	Sounds like:
+	<%= @memory.sounds_like %>
+</span>
+
+<span class="content"> 
+	Smells like:
+	<%= @memory.smells_like %>
+</span>
+
+<%= link_to 'Edit', edit_memory_path(@memory) %>
+</div>

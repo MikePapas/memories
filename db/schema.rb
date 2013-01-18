@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130117215343) do
+ActiveRecord::Schema.define(:version => 20130118045424) do
+
+  create_table "memories", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "video"
+    t.string   "photo"
+    t.date     "date"
+    t.string   "location"
+    t.string   "mood"
+    t.string   "occasion"
+    t.string   "sounds_like"
+    t.string   "smells_like"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "memories", ["user_id"], :name => "index_memories_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

@@ -27,6 +27,7 @@ describe User do
 	it { should respond_to{:remember_token} }
 	it { should respond_to{:authenticate} }
 	it { should respond_to{:admin} }
+	it { should respond_to{:memories} }
 
 	it { should be_valid }
 	it { should_not be_admin }
@@ -133,5 +134,23 @@ describe User do
 	describe "remember token" do
 		before { @user.save }
 		its(:remember_token) { should_not be_blank }
+	end
+
+	describe "memory associations" do
+		before { @user.save }
+		let!(:memory1) do
+			FactoryGirl.create(:memory, user: @user)
+		end
+		let!(:memory2) do
+			FactoryGirl.create(:memory, user: @user)
+		end
+
+		it "should destroy associated memories" do
+			memories = @user.memories
+			@user.destroy
+			memories.each do |memory|
+				Memory.find_by_id(memory.id).should be_nil
+			end
+		end
 	end
 end
